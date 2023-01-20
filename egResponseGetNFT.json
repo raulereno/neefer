@@ -1,0 +1,36 @@
+{
+	"id": "24e3802d-79e5-4621-b710-d1ecb47bf474",
+	"metadata": {
+		"name": "yo",
+		"image": "https://res.cloudinary.com/dbgpp8nla/image/upload/v1674219865/l3oegsxt1l83y3pmzvd7.jpg",
+		"description": "yasdad",
+		"properties": [
+			{
+				"uri": "https://res.cloudinary.com/dbgpp8nla/image/upload/v1674219866/l5v9wskeiamcxuvwugqq.jpg",
+				"type": "image/png"
+			}
+		],
+		"attributes": [
+			{
+				"trait_type": "sun_size",
+				"value": "l"
+			},
+			{
+				"trait_type": "sun_pos",
+				"value": "center"
+			},
+			{
+				"trait_type": "terrain",
+				"value": "flat"
+			}
+		]
+	},
+	"onChain": {
+		"status": "success",
+		"tokenId": "6",
+		"owner": "0x01A64d232c7B6cF7cB3f2c3339B96AD3bB93fcd7",
+		"txId": "0x10b4449d229c126345682669650bfe1ccbc03517790953c778d8653a763d38d6",
+		"contractAddress": "0xF2C07c87dC98Eb742b7b5316b0fD6ddB8bBafF22",
+		"chain": "polygon"
+	}
+}
