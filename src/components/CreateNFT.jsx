@@ -57,6 +57,7 @@ const CreateNFT = () => {
   const mintNTF = async (e) => {
     e.preventDefault();
 
+    setForm(newNTF);
     let aux = validateSend(form);
 
     if (Object.keys(aux).length) {
@@ -215,6 +216,7 @@ const CreateNFT = () => {
                 id="radio_solana"
                 onChange={inputHandler}
                 value="default-solana"
+                checked={form.chain === "default-solana"}
               />
               <label htmlFor="radio_solana">Solana</label>
               <input
@@ -223,6 +225,7 @@ const CreateNFT = () => {
                 id="radio_polygon"
                 onChange={inputHandler}
                 value="default-polygon"
+                checked={form.chain === "default-polygon"}
               />
               <label htmlFor="radio_polygon">Polygon</label>
             </div>
@@ -233,6 +236,7 @@ const CreateNFT = () => {
             <ul>
               {form.properties?.map((element, i) => {
                 if (form.properties.length - 1 === i) {
+                  console.log(element.key);
                   return (
                     <li key={i}>
                       <input
@@ -241,7 +245,7 @@ const CreateNFT = () => {
                         id=""
                         placeholder="Eg. Body"
                         onChange={inputHandler}
-                        value={form.properties[i][element.key]}
+                        value={form.properties[i].key}
                         className={`${errors.properties && "input_error"}`}
                       />
                       <input
@@ -250,7 +254,7 @@ const CreateNFT = () => {
                         id=""
                         placeholder="Eg. Figther"
                         onChange={inputHandler}
-                        value={form.properties[i][element.value]}
+                        value={form.properties[i].value}
                         className={`${errors.properties && "input_error"}`}
                       />
                       <button onClick={addPropertie} type="button">
@@ -263,29 +267,30 @@ const CreateNFT = () => {
                       </button>
                     </li>
                   );
+                } else {
+                  return (
+                    <li key={i}>
+                      <input
+                        type="text"
+                        name={`properties_key${i}`}
+                        id=""
+                        placeholder="Eg. Body"
+                        onChange={inputHandler}
+                        value={form.properties[i].key}
+                        className={`${errors.properties && "input_error"}`}
+                      />
+                      <input
+                        type="text"
+                        name={`properties_value${i}`}
+                        id=""
+                        placeholder="Eg. Figther"
+                        onChange={inputHandler}
+                        value={form.properties[i].value}
+                        className={`${errors.properties && "input_error"}`}
+                      />
+                    </li>
+                  );
                 }
-                return (
-                  <li key={i}>
-                    <input
-                      type="text"
-                      name={`properties_key${i}`}
-                      id=""
-                      placeholder="Eg. Body"
-                      onChange={inputHandler}
-                      value={form.properties[i].key}
-                      className={`${errors.properties && "input_error"}`}
-                    />
-                    <input
-                      type="text"
-                      name={`properties_value${i}`}
-                      id=""
-                      placeholder="Eg. Figther"
-                      onChange={inputHandler}
-                      value={form.properties[i].value}
-                      className={`${errors.properties && "input_error"}`}
-                    />
-                  </li>
-                );
               })}
             </ul>
             <span>{errors?.properties}</span>
