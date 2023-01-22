@@ -1,1 +1,40 @@
 @import url("_mintNft.scss");
+@import url("_modalCreated.scss");
+
+body {
+  background-color: rgba(128, 128, 128, 0.179);
+  padding: 30px 200px;
+}
+#container_create {
+  background-color: white;
+  padding: 30px 150px;
+  border-radius: 10px;
+  h1 {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  .container_dropzone {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.277);
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+    p {
+      margin: 0;
+      margin-bottom: 5px;
+      color: gray;
+      svg {
+        margin-left: 10px;
+        width: 18px;
+        fill: rgba(128, 128, 128, 0.518);
+        &:hover {
+          fill: black;
+        }
+      }
+    }
+  }
+}
