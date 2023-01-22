@@ -39,8 +39,8 @@
   }
   .container_properties {
     display: flex;
-    justify-content: space-between;
-    width: 500px;
+    justify-content: space-around;
+    flex-wrap: wrap;
     .properties {
       margin-top: 20px;
       width: 100px;

@@ -57,7 +57,6 @@ const CreateNFT = () => {
   const mintNTF = async (e) => {
     e.preventDefault();
 
-    setForm(newNTF);
     let aux = validateSend(form);
 
     if (Object.keys(aux).length) {
@@ -115,7 +114,7 @@ const CreateNFT = () => {
       )
       .then((data) => {
         setResponse(data);
-        setForm(newNTF);
+        setForm({ ...newNTF, properties: [{ key: "", value: "" }] });
         setFiles([]);
       })
       .catch((err) => {

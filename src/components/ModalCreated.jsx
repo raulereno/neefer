@@ -60,7 +60,7 @@ function Example({ open, setOpen, data }) {
           <Modal.Title>New NFT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div id="container_modal">
+          <div id="container_modal" className="card text-center">
             {response === null ? (
               <>
                 <h1>Creating NFT...</h1>
@@ -75,50 +75,52 @@ function Example({ open, setOpen, data }) {
               </>
             ) : (
               <>
-                <h1>{response.metadata.name}</h1>
-                <div className="container_description">
-                  <div>
-                    <img
-                      id="main_image"
-                      src={response.metadata.image}
-                      alt=""
-                      srcset=""
-                    />
-                    <div className="secondary_pics">
-                      {response.metadata.properties.files.map((element) => {
-                        return <img src={element.uri} alt="" />;
-                      })}
+                <div className="card-body">
+                  <h1 className="card-title">{response.metadata.name}</h1>
+                  <div className="container_description ">
+                    <div>
+                      <img
+                        id="main_image"
+                        src={response.metadata.image}
+                        alt=""
+                        srcset=""
+                      />
+                      <div className="secondary_pics">
+                        {response.metadata.properties.files.map((element) => {
+                          return <img src={element.uri} alt="" />;
+                        })}
+                      </div>
+                    </div>
+                    <div className="description">
+                      <h3>Description:</h3>
+                      <span>{response.metadata.description}</span>
                     </div>
                   </div>
-                  <div className="description">
-                    <h3>Description:</h3>
-                    <p>{response.metadata.description}</p>
+                  <h3>Properties</h3>
+                  <div className="container_properties">
+                    {response.metadata.attributes.map((element) => {
+                      return (
+                        <div className="properties">
+                          <p className="key">{element.trait_type}</p>
+                          <p className="value">{element.value}</p>
+                        </div>
+                      );
+                    })}
                   </div>
-                </div>
-                <h3>Properties</h3>
-                <div className="container_properties">
-                  {response.metadata.attributes.map((element) => {
-                    return (
-                      <div className="properties">
-                        <p className="key">{element.trait_type}</p>
-                        <p className="value">{element.value}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="container_details">
-                  <h3>Details</h3>
-                  <p>
-                    {response.onChain.contractAddress
-                      ? `Contract Adress:${response.onChain.contractAddress}`
-                      : `Mint Hash: ${response.onChain.mintHash}`}
-                  </p>
-                  <p>
-                    {response.onChain.tokenId
-                      ? `Token ID: ${response.onChain.tokenId}`
-                      : ""}
-                  </p>
-                  <p>Chain: {response.onChain.chain}</p>
+                  <div className="container_details">
+                    <h3>Details</h3>
+                    <p>
+                      {response.onChain.contractAddress
+                        ? `Contract Adress:${response.onChain.contractAddress}`
+                        : `Mint Hash: ${response.onChain.mintHash}`}
+                    </p>
+                    <p>
+                      {response.onChain.tokenId
+                        ? `Token ID: ${response.onChain.tokenId}`
+                        : ""}
+                    </p>
+                    <p>Chain: {response.onChain.chain}</p>
+                  </div>
                 </div>
               </>
             )}
