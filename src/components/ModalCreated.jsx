@@ -44,6 +44,7 @@ function Example({ open, setOpen, data }) {
     if (Object.keys(data).length) {
       fetchingData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
