@@ -181,6 +181,7 @@ const CreateNFT = () => {
               value={form.name}
               name="name"
               className={`${errors.name && "input_error"}`}
+              maxLength={60}
             />
             <span>{errors?.name}</span>
           </div>
@@ -189,8 +190,8 @@ const CreateNFT = () => {
             id=""
             cols="30"
             rows="10"
-            placeholder="Decription (max.200)"
-            maxLength="200"
+            placeholder="Decription (max.400)"
+            maxLength="400"
             onChange={inputHandler}
             value={form.description}
             className={`${errors.description && "input_error"}`}
